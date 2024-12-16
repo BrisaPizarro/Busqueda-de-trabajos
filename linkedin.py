@@ -53,15 +53,3 @@ def buscar_ofertas_linkedin(termino_busqueda, ubicacion=None):
 
     return resultados
 
-
-termino_busqueda = "software engineer"
-ubicacion = "lima"
-resultados = buscar_ofertas_linkedin(termino_busqueda, ubicacion)
-
-# Mostrar resultados
-for resultado in resultados:
-    print(f"Título: {resultado['titulo']}")
-    print(f"Empresa: {resultado['empresa']}")
-    print(f"Link: {resultado['link']}")
-    print(f"Ubicación: {resultado['ubicacion']}")
-    print("-" * 40)
