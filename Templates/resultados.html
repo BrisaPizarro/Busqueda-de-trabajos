@@ -40,7 +40,8 @@
                                 <h3>{{ oferta['titulo'] }}</h3>
                                 <p><strong>Empresa:</strong> {{ oferta['empresa'] }}</p>
                                 <p><strong>Ubicación:</strong> {{ oferta['ubicacion'] }}</p>
-                                <a class="btn-ver-oferta" href="{{ oferta['url'] }}" target="_blank">Ver oferta</a>
+                                <p><strong>Salario:</strong> {{ oferta['salario'] }}</p>
+                                <a class="btn-ver-oferta" href="{{ oferta['link'] }}" target="_blank">Ver oferta</a>
                             </div>
                         {% endfor %}
                     </div>
@@ -48,26 +49,27 @@
                     <p>No se encontraron ofertas en Trabajando.pe.</p>
                 {% endif %}
             </div>
-
-            <!-- Sección de Jora -->
-            <div class="ofertas-section">
-                <h2>Ofertas de Jora</h2>
-                {% if ofertas_jora %}
-                    <div class="ofertas-lista">
-                        {% for oferta in ofertas_jora %}
-                            <div class="oferta">
-                                <h3>{{ oferta['titulo'] }}</h3>
-                                <p><strong>Empresa:</strong> {{ oferta['empresa'] }}</p>
-                                <p><strong>Ubicación:</strong> {{ oferta['ubicacion'] }}</p>
-                                <a class="btn-ver-oferta" href="{{ oferta['link'] }}" target="_blank">Ver oferta</a>
-                            </div>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    <p>No se encontraron ofertas en Jora.</p>
-                {% endif %}
-            </div>
         </div>
+
+        <!-- Sección de Jora -->
+        <div class="ofertas-section jora">
+            <h2>Ofertas de Jora</h2>
+            {% if ofertas_jora %}
+                <div class="ofertas-lista">
+                    {% for oferta in ofertas_jora %}
+                        <div class="oferta">
+                            <h3>{{ oferta['titulo'] }}</h3>
+                            <p><strong>Empresa:</strong> {{ oferta['empresa'] }}</p>
+                            <p><strong>Ubicación:</strong> {{ oferta['ubicacion'] }}</p>
+                            <a class="btn-ver-oferta" href="{{ oferta['link'] }}" target="_blank">Ver oferta</a>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>No se encontraron ofertas en Jora.</p>
+            {% endif %}
+        </div>
+
         <div class="volver">
             <a href="{{ url_for('index') }}" class="btn-volver">Volver al formulario de búsqueda</a>
         </div>
@@ -91,4 +93,3 @@
     </div>
 </body>
 </html>
-
