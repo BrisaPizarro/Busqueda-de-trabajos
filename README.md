@@ -19,6 +19,64 @@ La página web estará diseñada para recopilar información sobre ofertas de tr
 - Optimizar el tiempo de búsqueda para los usuarios, mostrando resultados personalizados basados en sus preferencias, como ubicación, salario, tipo de contrato o requisitos específicos.
 - Garantizar que el sistema mantenga la información actualizada y ofrezca un rendimiento eficiente para gestionar grandes volúmenes de datos provenientes de distintas fuentes.
 
+# Preparación del entorno
+Se configuró el entorno con las siguientes herramientas y bibliotecas:
+
+**Flask:** Framework web ligero utilizado para construir la interfaz de la aplicación y manejar las rutas.
+**Requests:** Realiza solicitudes HTTP para obtener el contenido de las páginas web.
+**BeautifulSoup (bs4):** Biblioteca para analizar y extraer datos de HTML y XML. Fundamental para el web scraping.
+
+# Instalación de dependencias
+Para instalar las bibliotecas necesarias se ejecuto el siguiente código:
+
+```python
+import requests
+from bs4 import BeautifulSoup
+from flask import Flask, request
+```
+# Función del código app.py
+```python
+from flask import Flask, render_template, request
+from scraping.Computrabajo import buscar_ofertas_computrabajo
+from scraping.Trabajando_pe import buscar_ofertas_trabajando
+from scraping.Jora import buscar_ofertas_jora
+
+app = Flask(__name__)
+
+@app.route("/", methods=["GET"])
+def index():
+    return render_template("index.html")
+
+@app.route("/resultados", methods=["GET"])
+def resultados():
+    tipo_trabajo = request.args.get("tipo_trabajo")
+    empresa = request.args.get("empresa")
+    ubicacion = request.args.get("ubicacion")
+
+    ofertas_computrabajo = buscar_ofertas_computrabajo(tipo_trabajo, ubicacion)
+    ofertas_trabajando = buscar_ofertas_trabajando(tipo_trabajo, ubicacion)
+    ofertas_jora = buscar_ofertas_jora(tipo_trabajo, ubicacion)
+
+    return render_template("resultados.html", 
+                           ofertas_computrabajo=ofertas_computrabajo,
+                           ofertas_trabajando=ofertas_trabajando,
+                           ofertas_jora=ofertas_jora)
+
+if __name__ == "__main__":
+    app.run(debug=True)
+```
+
+Este código crea una aplicación web que:
+
+Permite a los usuarios buscar ofertas laborales en tres plataformas de empleo populares (Computrabajo, Trabajando.pe, y Jora).
+Extrae y organiza las ofertas laborales utilizando técnicas de web scraping.
+Muestra los resultados en una página web estructurada e interactiva.
+Es útil para quienes buscan centralizar múltiples fuentes de búsqueda de empleo en un solo lugar, ahorrando tiempo al combinar los resultados de distintas plataformas.
+
+# Conclusión
+Este proyecto demuestra cómo se pueden integrar diferentes fuentes de información y ofrecer un servicio que mejora la experiencia del usuario al buscar empleo. La utilización de web scraping y la creación de una aplicación web interactiva optimizan el proceso, ahorrando tiempo y esfuerzo a los usuarios. Además, la arquitectura modular permite fácilmente añadir más plataformas de empleo en el futuro, extendiendo así el alcance de la aplicación. En resumen, la aplicación es una herramienta útil y eficiente para quienes buscan empleo en diversas plataformas, mejorando la accesibilidad y eficiencia en el proceso de búsqueda.
+
+
 **Fuente de datos:**
 - Computrabajo:
 (https://pe.computrabajo.com/)
