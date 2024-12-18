@@ -10,6 +10,7 @@ La página web estará diseñada para recopilar información sobre ofertas de tr
 - El objetivo del proyecto es ofrecer una herramienta digital que permita a los usuarios encontrar y comparar ofertas de empleo disponibles en diferentes plataformas, priorizando las que cumplan con sus preferencias y mostrando todas las opciones relevantes.
 
 **Objetivos:**
+
 **Objetivo general:**
 - Desarrollar una página web que permita a los usuarios buscar ofertas de trabajo en múltiples plataformas, identificar aquellas que mejor se adapten a sus criterios, y presentar todas las alternativas disponibles de manera ordenada.
 
