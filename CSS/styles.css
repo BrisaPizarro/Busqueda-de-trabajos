@@ -105,10 +105,9 @@ h1 {
 
 /* Estilo de las secciones de ofertas */
 .ofertas-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Dos columnas para cada sección */
+    display: flex;
+    flex-direction: column;
     gap: 30px;
-    flex-wrap: wrap;
     margin-bottom: 30px;
 }
 
@@ -128,8 +127,14 @@ h1 {
 
 .ofertas-lista {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Dos columnas para las ofertas */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ajustar automáticamente el número de columnas */
     gap: 20px;
+}
+
+/* Estilo específico para la sección de Jora */
+.ofertas-section.jora .ofertas-lista {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    display: grid;
 }
 
 .oferta {
@@ -232,11 +237,11 @@ h1 {
 
     /* Hacer que las ofertas también sean más grandes en pantallas pequeñas */
     .ofertas-container {
-        grid-template-columns: 1fr 1fr; /* Dos columnas */
+        grid-template-columns: 1fr; /* Una columna para pantallas pequeñas */
     }
 
     .ofertas-lista {
-        grid-template-columns: 1fr 1fr; /* Dos columnas */
+        grid-template-columns: 1fr; /* Una columna para pantallas pequeñas */
     }
 }
 
@@ -261,7 +266,6 @@ h1 {
 .btn-volver:hover {
     background-color: #555;  /* Gris más oscuro para el hover */
 }
-
 
 /* Estilo de los mensajes de error o vacío */
 p {
