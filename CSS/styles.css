@@ -194,6 +194,27 @@ h1 img {
     background-color: #bbb;
 }
 
+/* Estilo para el botón "Buscar más ofertas" */
+.ver-mas {
+    text-align: center;
+}
+
+.btn-ver-mas {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3a6375;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-ver-mas:hover {
+    background-color: #2c3e46;
+}
+
 /* Sección de testimonios */
 .testimonios {
     background-color: #222;
@@ -289,4 +310,27 @@ p {
     color: #777;
     text-align: center;
 }
+
+/* Estilo para el boton de buscar más ofertas */
+.btn-ver-mas {
+    display: block;
+    width: 100%;
+    margin: 20px 0;
+    padding: 10px 20px;
+    background-color: #3a6375;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-ver-mas:hover {
+    background-color: #2c3e46;
+}
+
+
+
+
 
