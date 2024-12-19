@@ -31,6 +31,9 @@
                             </div>
                         {% endfor %}
                     </div>
+                    <div class="ver-mas">
+                        <a href="https://pe.jora.com/" target="_blank" class="btn-ver-mas">Buscar más ofertas</a>
+                    </div>
                 {% else %}
                     <p>No se encontraron ofertas en Jora.</p>
                 {% endif %}
@@ -54,6 +57,9 @@
                             </div>
                         {% endfor %}
                     </div>
+                    <div class="ver-mas">
+                        <a href="https://www.trabajando.pe/trabajo-buscar-{{ termino_busqueda }}" target="_blank" class="btn-ver-mas">Buscar más ofertas</a>
+                    </div>
                 {% else %}
                     <p>No se encontraron ofertas en Trabajando.pe.</p>
                 {% endif %}
@@ -75,6 +81,9 @@
                                 <a class="btn-ver-oferta" href="{{ oferta['link'] }}" target="_blank">Ver oferta</a>
                             </div>
                         {% endfor %}
+                    </div>
+                    <div class="ver-mas">
+                        <a href="https://pe.computrabajo.com/ofertas-de-trabajo/?q={{ termino_busqueda }}" target="_blank" class="btn-ver-mas">Buscar más ofertas</a>
                     </div>
                 {% else %}
                     <p>No se encontraron ofertas en Computrabajo.</p>
@@ -105,3 +114,4 @@
     </div>
 </body>
 </html>
+
