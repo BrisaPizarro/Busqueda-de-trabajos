@@ -1,4 +1,4 @@
-# Busqueda de trabajos
+# Búsqueda de trabajos
 **Propuesta:**
 - Crear una página web para la búsqueda de empleos, comparando ofertas en diversas plataformas.
 La página web estará diseñada para recopilar información sobre ofertas de trabajo específicas en múltiples portales dedicados al empleo. El sistema identificará la plataforma con las mejores condiciones(como salario,ubicación o requisitos) según los criterios establecidos por el usuario, al tiempo que mostrará otras alternativas disponibles.
