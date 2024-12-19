@@ -9,30 +9,17 @@
 <body>
     <div class="imagen-header"></div> 
     <div class="container">
-        <h1>Resultados de la Búsqueda</h1>
+        <h1>
+            <img src="{{ url_for('static', filename='images/logo2.png') }}" alt="Logo" class="logo-titulo">
+            Resultados de la Búsqueda
+        </h1>
         <div class="ofertas-container">
-            <!-- Sección de Computrabajo -->
-            <div class="ofertas-section">
-                <h2>Ofertas de Computrabajo</h2>
-                {% if ofertas_computrabajo %}
-                    <div class="ofertas-lista">
-                        {% for oferta in ofertas_computrabajo %}
-                            <div class="oferta">
-                                <h3>{{ oferta['titulo'] }}</h3>
-                                <p><strong>Empresa:</strong> {{ oferta['empresa'] }}</p>
-                                <p><strong>Ubicación:</strong> {{ oferta['ubicacion'] }}</p>
-                                <a class="btn-ver-oferta" href="{{ oferta['link'] }}" target="_blank">Ver oferta</a>
-                            </div>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    <p>No se encontraron ofertas en Computrabajo.</p>
-                {% endif %}
-            </div>
-
             <!-- Sección de Trabajando.pe -->
             <div class="ofertas-section">
-                <h2>Ofertas de Trabajando.pe</h2>
+                <h2>
+                    <img src="{{ url_for('static', filename='images/trabajando_logo.png') }}" alt="Trabajando.pe Logo">
+                    Ofertas de Trabajando.pe
+                </h2>
                 {% if ofertas_trabajando %}
                     <div class="ofertas-lista">
                         {% for oferta in ofertas_trabajando %}
@@ -49,25 +36,50 @@
                     <p>No se encontraron ofertas en Trabajando.pe.</p>
                 {% endif %}
             </div>
-        </div>
 
-        <!-- Sección de Jora -->
-        <div class="ofertas-section jora">
-            <h2>Ofertas de Jora</h2>
-            {% if ofertas_jora %}
-                <div class="ofertas-lista">
-                    {% for oferta in ofertas_jora %}
-                        <div class="oferta">
-                            <h3>{{ oferta['titulo'] }}</h3>
-                            <p><strong>Empresa:</strong> {{ oferta['empresa'] }}</p>
-                            <p><strong>Ubicación:</strong> {{ oferta['ubicacion'] }}</p>
-                            <a class="btn-ver-oferta" href="{{ oferta['link'] }}" target="_blank">Ver oferta</a>
-                        </div>
-                    {% endfor %}
-                </div>
-            {% else %}
-                <p>No se encontraron ofertas en Jora.</p>
-            {% endif %}
+            <!-- Sección de Jora -->
+            <div class="ofertas-section jora">
+                <h2>
+                    <img src="{{ url_for('static', filename='images/jora_logo.png') }}" alt="Jora Logo">
+                    Ofertas de Jora
+                </h2>
+                {% if ofertas_jora %}
+                    <div class="ofertas-lista">
+                        {% for oferta in ofertas_jora %}
+                            <div class="oferta">
+                                <h3>{{ oferta['titulo'] }}</h3>
+                                <p><strong>Empresa:</strong> {{ oferta['empresa'] }}</p>
+                                <p><strong>Ubicación:</strong> {{ oferta['ubicacion'] }}</p>
+                                <a class="btn-ver-oferta" href="{{ oferta['link'] }}" target="_blank">Ver oferta</a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p>No se encontraron ofertas en Jora.</p>
+                {% endif %}
+            </div>
+
+            <!-- Sección de Computrabajo -->
+            <div class="ofertas-section">
+                <h2>
+                    <img src="{{ url_for('static', filename='images/computrabajo_logo.png') }}" alt="Computrabajo Logo">
+                    Ofertas de Computrabajo
+                </h2>
+                {% if ofertas_computrabajo %}
+                    <div class="ofertas-lista">
+                        {% for oferta in ofertas_computrabajo %}
+                            <div class="oferta">
+                                <h3>{{ oferta['titulo'] }}</h3>
+                                <p><strong>Empresa:</strong> {{ oferta['empresa'] }}</p>
+                                <p><strong>Ubicación:</strong> {{ oferta['ubicacion'] }}</p>
+                                <a class="btn-ver-oferta" href="{{ oferta['link'] }}" target="_blank">Ver oferta</a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p>No se encontraron ofertas en Computrabajo.</p>
+                {% endif %}
+            </div>
         </div>
 
         <div class="volver">
