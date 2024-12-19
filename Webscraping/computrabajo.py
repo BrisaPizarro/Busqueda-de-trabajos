@@ -13,7 +13,11 @@ def buscar_ofertas_computrabajo(termino_busqueda, empresa=None):
         url = f"{url_base}{termino_busqueda}"
 
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
+        "Referer": "https://pe.computrabajo.com",
+        "Accept-Language": "es-ES,es;q=0.9",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Connection": "keep-alive",
     }
 
     response = requests.get(url, headers=headers)
@@ -32,7 +36,6 @@ def buscar_ofertas_computrabajo(termino_busqueda, empresa=None):
 
             empresa = oferta.find("a", class_="fc_base t_ellipsis").text.strip() if oferta.find("a", class_="fc_base t_ellipsis") else "Sin especificar"
 
-            # Extraer ubicación usando el nuevo selector
             ubicacion_element = oferta.find("p", class_="fs16 fc_base mt5")
             if ubicacion_element:
                 ubicacion = ubicacion_element.find("span", class_="mr10").text.strip()
@@ -40,14 +43,17 @@ def buscar_ofertas_computrabajo(termino_busqueda, empresa=None):
                 ubicacion = "Sin ubicación"
 
             link = oferta.find("a", class_="js-o-link")["href"]
+            link = f"https://pe.computrabajo.com{link.split('?')[0]}"
 
             resultados.append({
                 "titulo": titulo,
                 "empresa": empresa,
                 "ubicacion": ubicacion,
-                "link": f"https://pe.computrabajo.com{link}"
+                "link": link
             })
         except AttributeError:
             continue
 
-    return resultados 
+    return resultados
+
+
