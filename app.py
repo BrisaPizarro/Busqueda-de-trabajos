@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from scraping.computrabajo import buscar_ofertas_computrabajo
+from scraping.Computrabajo import buscar_ofertas_computrabajo
 from scraping.Trabajando_pe import buscar_ofertas_trabajando
 from scraping.Jora import buscar_ofertas_jora
 
